@@ -1,6 +1,6 @@
 const Review = require("../models/review.model.js");
 
-// Create and Save a new Author
+// Create and Save a new Review
 exports.create = (req, res) => {
     console.log("^^",req.body);
     // Validate request
@@ -10,13 +10,13 @@ exports.create = (req, res) => {
         });
     }
 
-  // Create an Author
+  // Create a Review
     const review = new Review({
         bookId:req.body.bookId,
         bReview:req.body.bReview
     });
     console.log("&&",review);
-  // Save Author in the database
+  // Save Review in the database
     Review.create(review, (err, data) => {
         if (err)
             res.status(500).send({
@@ -27,9 +27,8 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Authors from the database.
+// Retrieve all Reviews from the database.
 exports.findAll = (req, res) => {
-     console.log(req.query.bookId);
      if(req.query.bookId){
           Review.getAllBookId(req.query.bookId,(err, data) => {
               if (err)
@@ -41,6 +40,10 @@ exports.findAll = (req, res) => {
           });
      }
      else{
+          if(Object.keys(req.query).length !== 0)
+          {
+              return res.end("Enter request in the form /review?bookId=x")
+          }
           Review.getAll((err, data) => {
               if (err)
                   res.status(500).send({
@@ -52,7 +55,7 @@ exports.findAll = (req, res) => {
      }
 };
 
-// Find a single Author with a authorId
+// Find a single Review with a reviewId
 exports.findOne = (req, res) => {
     Review.findById(req.params.reviewId, (err, data) => {
           if (err) {
@@ -69,7 +72,7 @@ exports.findOne = (req, res) => {
         });
 };
 
-// Update an Author identified by the authorId in the request
+// Update a Review identified by the reviewId in the request
 exports.update = (req, res) => {
         // Validate Request
         if (!req.body) {
@@ -97,7 +100,7 @@ exports.update = (req, res) => {
         );
 };
 
-// Delete an Author with the specified authorId in the request
+// Delete a Review with the specified reviewId in the request
 exports.delete = (req, res) => {
         Review.remove(req.params.reviewId, (err, data) => {
           if (err) {
@@ -114,7 +117,7 @@ exports.delete = (req, res) => {
         });
 };
 
-// Delete all Authors from the database.
+// Delete all Reviews from the database.
 exports.deleteAll = (req, res) => {
     Review.removeAll((err, data) => {
           if (err)

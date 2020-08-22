@@ -33,7 +33,7 @@ Book.findById = (bookId, result) => {
       return;
     }
 
-    // not found Customer with the id
+    // not found Book with the id
     result({ kind: "not_found" }, null);
   });
 };
@@ -63,7 +63,7 @@ Book.updateById = (id, book, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Customer with the id
+        // not found Book with the id
         result({ kind: "not_found" }, null);
         return;
       }
@@ -83,7 +83,7 @@ Book.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Customer with the id
+      // not found Book with the id
       result({ kind: "not_found" }, null);
       return;
     }

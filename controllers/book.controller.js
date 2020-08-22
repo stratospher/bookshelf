@@ -1,6 +1,6 @@
 const Book = require("../models/book.model.js");
 
-// Create and Save a new Author
+// Create and Save a new Book
 exports.create = (req, res) => {
     // Validate request
     if (!req.body) {
@@ -9,13 +9,13 @@ exports.create = (req, res) => {
         });
     }
 
-  // Create an Author
+  // Create a Book
     const book = new Book({
         title:req.body.title,
         authorId: req.body.authorId
     });
 
-  // Save Author in the database
+  // Save Book in the database
     Book.create(book, (err, data) => {
         if (err)
             res.status(500).send({
@@ -26,9 +26,9 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Authors from the database.
+// Retrieve all Books from the database.
 exports.findAll = (req, res) => {
-      if(req.query.authorID)
+      if(req.query.authorID) // to handle /book?authorID=x
       {
           Book.getAllAuthorId(req.query.authorID, (err, data) => {
           if (err)
@@ -40,6 +40,10 @@ exports.findAll = (req, res) => {
           });
       }
       else{
+        if(Object.keys(req.query).length !== 0)
+        {
+          return res.end("Enter request in the form /book?authorID=x")
+        }
         Book.getAll((err, data) => {
           if (err)
             res.status(500).send({
@@ -51,7 +55,7 @@ exports.findAll = (req, res) => {
       }
 };
 
-// Find a single Author with a authorId
+// Find a single Book with a bookId
 exports.findOne = (req, res) => {
     Book.findById(req.params.bookId, (err, data) => {
           if (err) {
@@ -68,7 +72,7 @@ exports.findOne = (req, res) => {
         });
 };
 
-// Update an Author identified by the authorId in the request
+// Update a Book identified by the bookId in the request
 exports.update = (req, res) => {
         // Validate Request
         if (!req.body) {
@@ -96,7 +100,7 @@ exports.update = (req, res) => {
         );
 };
 
-// Delete an Author with the specified authorId in the request
+// Delete a Book with the specified bookId in the request
 exports.delete = (req, res) => {
         Book.remove(req.params.bookId, (err, data) => {
           if (err) {
@@ -113,7 +117,7 @@ exports.delete = (req, res) => {
         });
 };
 
-// Delete all Authors from the database.
+// Delete all Books from the database.
 exports.deleteAll = (req, res) => {
     Book.removeAll((err, data) => {
           if (err)

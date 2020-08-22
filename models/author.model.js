@@ -32,7 +32,7 @@ Author.findById = (authorId, result) => {
       return;
     }
 
-    // not found Customer with the id
+    // not found Author with the id
     result({ kind: "not_found" }, null);
   });
 };
@@ -62,7 +62,7 @@ Author.updateById = (id, author, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Customer with the id
+        // not found Author with the id
         result({ kind: "not_found" }, null);
         return;
       }
@@ -82,7 +82,7 @@ Author.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Customer with the id
+      // not found Author with the id
       result({ kind: "not_found" }, null);
       return;
     }

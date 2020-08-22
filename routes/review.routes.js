@@ -1,22 +1,22 @@
 module.exports = app => {
     const reviews = require("../controllers/review.controller.js");
   
-    // Create a new Author
+    // Create a new Review
     app.post("/review", reviews.create);
   
-    // Retrieve all Authors
+    // Retrieve all Reviews
     app.get("/review",reviews.findAll);
   
-    // Retrieve a single Author with authorId
+    // Retrieve a single Review with reviewId
     app.get("/review/:reviewId", reviews.findOne);
   
-    // Update an Author with authorId
+    // Update a Review with reviewId
     app.put("/review/:reviewId", reviews.update);
   
-    // Delete an Author with authorId
+    // Delete a Review with reviewId
     app.delete("/review/:reviewId", reviews.delete);
   
-    // Delete all authors
+    // Delete all reviews
     app.delete("/review", reviews.deleteAll);
 
     // app.use(function(req, res, next) {

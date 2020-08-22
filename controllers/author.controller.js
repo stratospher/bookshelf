@@ -105,7 +105,7 @@ exports.deleteAll = (req, res) => {
           if (err)
             res.status(500).send({
               message:
-                err.message || "Some error occurred while removing all customers."
+                err.message || "Some error occurred while removing all authors."
             });
           else res.send({ message: `All Authors were deleted successfully!` });
         });

@@ -33,7 +33,7 @@ Review.findById = (reviewId, result) => {
       return;
     }
 
-    // not found Customer with the id
+    // not found Review with the id
     result({ kind: "not_found" }, null);
   });
 };
@@ -63,7 +63,7 @@ Review.updateById = (id, review, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Customer with the id
+        // not found Review with the id
         result({ kind: "not_found" }, null);
         return;
       }
@@ -83,7 +83,7 @@ Review.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Customer with the id
+      // not found Review with the id
       result({ kind: "not_found" }, null);
       return;
     }

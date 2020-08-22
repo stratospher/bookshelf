@@ -1,22 +1,22 @@
 module.exports = app => {
     const books = require("../controllers/book.controller.js");
   
-    // Create a new Author
+    // Create a new Book
     app.post("/book", books.create);
   
-    // Retrieve all Authors
+    // Retrieve all Books
     app.get("/book",books.findAll);
   
-    // Retrieve a single Author with authorId
+    // Retrieve a single Book with bookId
     app.get("/book/:bookId", books.findOne);
   
-    // Update an Author with authorId
+    // Update a Book with bookId
     app.put("/book/:bookId", books.update);
   
-    // Delete an Author with authorId
+    // Delete a Book with bookId
     app.delete("/book/:bookId", books.delete);
   
-    // Delete all authors
+    // Delete all books
     app.delete("/book", books.deleteAll);
 
     // app.use(function(req, res, next) {
