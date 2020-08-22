@@ -1,6 +1,7 @@
 const port=8000;
 const path=require('path');
 const express=require('express');
+const db=require('./config/config.js');
 
 const app=express();
 
