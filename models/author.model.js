@@ -13,8 +13,8 @@ Author.create = (newAuthor, result) => {
       return;
     }
 
-    console.log("created author: ", { id: res.insertId, ...newAuthor });
-    result(null, { id: res.insertId, ...newAuthor });
+    console.log("created author: ", { authorId: res.insertId, ...newAuthor });
+    result(null, { authorId: res.insertId, ...newAuthor });
   });
 };
 
@@ -67,8 +67,8 @@ Author.updateById = (id, author, result) => {
         return;
       }
 
-      console.log("updated customer: ", { id: id, ...author });
-      result(null, { id: id, ...author });
+      console.log("updated author: ", { authorId: id, ...author });
+      result(null, { authorId: id, ...author });
     }
   );
 };

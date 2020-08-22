@@ -1,9 +1,7 @@
 const port=8000;
 const path=require('path');
 const bodyParser = require("body-parser");
-
 const express=require('express');
-// const db=require('./config/config.js');
 
 const app=express();
 
@@ -16,7 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to bookshelf application." });
   });
+
 require("./routes/author.routes.js")(app);
+require("./routes/book.routes.js")(app);
+require("./routes/review.routes.js")(app);
+
 app.listen(port,function(err){
     if(err){
         console.log("Error!!",err);
