@@ -1,0 +1,59 @@
+body{
+    margin:0;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#page-heading{
+    text-align: center;
+    color: gray;
+    margin-top: 25px;
+}
+div{
+    margin: auto;
+    width:25%;
+}
+li{
+    /* text-align: center; */
+    margin: 5px;
+    background-color:lightskyblue;
+    list-style: none;
+    padding:10px;
+    overflow: hidden;
+    font-weight: bold;
+    display: flex;
+}
+li .details{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+}
+li .delete{
+    text-align: center;
+}
+li .delete a{
+    color:white;
+    background-color:red;
+}
+li:hover{
+    background-color:gray;
+}
+#name{
+float: left;
+}
+#phone{
+    float: right;
+}
+button{
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+}
+input{
+    padding: 10px;
+    border: none;
+}
